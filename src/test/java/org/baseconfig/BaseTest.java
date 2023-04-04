@@ -30,24 +30,4 @@ public class BaseTest {
    public void tearDown() {
       driver.quit();
    }
-   public void LongPressAction(WebElement ele){
-      ((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",
-              ImmutableMap.of("elementId", ((RemoteWebElement)ele).getId(),
-                      "duration",20000));
-   }
-   public void scrollable(String text){
-      driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"));"));
-   }
-   public void scrollToEnd(){
-      boolean canScrollMore;
-      do
-      {
-         canScrollMore = (Boolean) ((JavascriptExecutor)driver).executeScript("mobile: scrollGesture",
-                 ImmutableMap.of("left", 100, "top", 100,
-                         "width", 200, "height", 200,
-                         "direction", "down",
-                         "percent", 3.0));
-      }while(canScrollMore);
-
-   }
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.GesturesTest;
 
 import java.nio.charset.StandardCharsets;
 
@@ -21,7 +22,7 @@ public class ViewsTest extends BaseTest {
 //        driver.findElement(AppiumBy.accessibilityId("2. Cursor (People)")).click();
 //        driver.findElement(AppiumBy.accessibilityId("3. Simple Adapter")).click();        dri
         WebElement ele = driver.findElement(By.xpath("//android.widget.TextView[@text='People Names']"));
-        LongPressAction(ele);
+        GesturesTest.LongPressAction(ele);
         String menuText = driver.findElement(By.id("android:id/title")).getText();
         Assert.assertEquals(menuText,"Sample menu");
         Assert.assertTrue(driver.findElement(By.id("android:id/title")).isDisplayed());
